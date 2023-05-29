@@ -6,6 +6,8 @@ https://www.hackbay.de/
 This is the implementation of our idea as team **CV-Dragon**
 A CV Screening Software with a landing page where you can upload a CV and get the main information and a ranking how good it fits to the specific job application.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/42b3e888-e83e-42d9-b49d-4ed4968575af/deploy-status)](https://app.netlify.com/sites/cv-dragon/deploys)
+
 _Backend is currently not implemented (29.5.2023)_
 
 ## CHALLENGE DATEV
