@@ -1,24 +1,26 @@
 .page_slider {
-  width: 90vw;
+  width: 100vw;
   background-color: gray;
-  aspect-ratio: 16/9;
-  background-size: contain;
+  aspect-ratio: 3/4;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: 40%;
   text-align: center;
   margin: auto;
 
   display: inline-block;
 
   position: absolute;
-  left: 5vw;
+  left: 0vw;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 500px) {
   .page_slider {
-    width: 100vw;
-    aspect-ratio: 3/4;
-    background-size: cover;
-    background-position: 40%;
+    width: 90vw;
+    aspect-ratio: 16/9;
+    background-size: contain;
+    background-position: 0%;
+    left: 5vw;
   }
 }
 
@@ -40,9 +42,7 @@
 }
 
 .slider_btn-right {
-  border-left: 2rem rgba(94, 178, 38, 0.5) solid;
-  border-right: 0;
-  right: 0;
+  display: none;
 }
 
 .slider_btn-left {
@@ -98,20 +98,20 @@
 }
 
 .chart {
-  width: 50vw;
+  width: 100vw;
   margin: auto;
   display: block;
   margin-top: 2rem;
 }
 
 .funnel {
-  width: 50vw;
+  width: 100vw;
   display: block;
   margin: auto;
   margin-top: -5rem;
 }
 .comment {
-  width: 60vw;
+  width: 100vw;
   position: absolute;
   left: 50%;
   translate: -50%;
@@ -120,24 +120,26 @@
 .comment_placeholder {
   width: 60vw;
   opacity: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 500px) {
   .chart {
-    width: 100vw;
+    width: 50vw;
   }
   .comment {
-    width: 100vw;
+    width: 60vw;
   }
   .comment_placeholder {
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
   }
   .funnel {
-    width: 100vw;
+    width: 50vw;
   }
   .slider_btn-right {
-    display: none;
+    border-left: 2rem rgba(94, 178, 38, 0.5) solid;
+    border-right: 0;
+    right: 0;
   }
 }
 
