@@ -1,20 +1,33 @@
-mat-card{
-    width: 50%;
-    display: inline-block;
-    margin: 0 auto;
-    padding: 3px;
+mat-card {
+  width: 50%;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 3px;
 }
 
-mat-form-field{
-    width: 100%;
+mat-form-field {
+  width: 100%;
 }
 
-.form{
-    width: 100%;
-    text-align: center;
+.form {
+  width: 100%;
+  text-align: center;
 }
 
 .transparent .mat-dialog-container {
-    box-shadow: none;
-    background: rgba(0, 0, 0, 0.0);
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0);
+}
+
+.load-error {
+  text-align: center;
+  font-size: 1rem;
+  margin: 1rem;
+  color: brown;
+}
+.thanks_dragon {
+  width: 50vw;
+  margin: auto;
+  display: block;
+  margin-block: 3rem;
 }

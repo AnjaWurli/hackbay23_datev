@@ -16,11 +16,11 @@ export class UploadCvComponent implements OnInit {
   showSpinner = false;
   file: File | null = null;
   public address = 'https://a45d-62-128-6-5.ngrok-free.app/';
+  public errorFetch = false;
   constructor(
     private httpClient: HttpClient,
     private applicantService: ApplicantService,
-    private router: Router,
-
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -94,6 +94,7 @@ export class UploadCvComponent implements OnInit {
         (error) => {
           console.log(error);
           this.showSpinner = false;
+          this.errorFetch = true;
         }
       );
   }

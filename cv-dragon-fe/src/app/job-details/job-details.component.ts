@@ -11,10 +11,11 @@ import * as jobs from '../../assets/opened-position.json';
   styleUrls: ['./job-details.component.css'],
 })
 export class JobDetailsComponent implements OnInit {
+  public errorFetch = false;
   private job: any;
   public address = 'https://a45d-62-128-6-5.ngrok-free.app/';
   private myJobs = jobs;
-  private dataSource:any;
+  private dataSource: any;
   @ViewChild('paginator') paginator1: MatPaginator;
 
   public myDataSource: any;
@@ -22,26 +23,33 @@ export class JobDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.dataSource= this.myJobs.jobs;
+    this.dataSource = this.myJobs.jobs;
     this.route.params.subscribe((params) => {
       this.job = this.dataSource.filter((job) => {
         return job.reference_id === params['id'];
       })[0];
     });
 
-    this.httpClient.get(this.address + 'lookup/', {
-      params: {
-        job_title: this.job.job_title,
-        interested_job_position: this.job.business_unit.name,
-      },
-      headers: new HttpHeaders({
-        'ngrok-skip-browser-warning': 'true',
-      }),
-    }).subscribe((applicats : any)=>{
-      this.myDataSource = new MatTableDataSource(applicats.applicants);
-      this.myDataSource.paginator = this.paginator1;
-      console.log(applicats)
-    });
+    this.httpClient
+      .get(this.address + 'lookup/', {
+        params: {
+          job_title: this.job.job_title,
+          interested_job_position: this.job.business_unit.name,
+        },
+        headers: new HttpHeaders({
+          'ngrok-skip-browser-warning': 'true',
+        }),
+      })
+      .subscribe(
+        (applicats: any) => {
+          this.myDataSource = new MatTableDataSource(applicats.applicants);
+          this.myDataSource.paginator = this.paginator1;
+          console.log(applicats);
+        },
+        () => {
+          this.errorFetch = true;
+        }
+      );
   }
 
   applyFilter(event: Event) {
@@ -49,7 +57,7 @@ export class JobDetailsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  convertToNumber(number){
+  convertToNumber(number) {
     return Number(number);
   }
 }
